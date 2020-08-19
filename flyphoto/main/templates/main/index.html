@@ -13,148 +13,111 @@ FlyPhoto
     К проекту
 </a>
 
-<!--div class="row">
-    <div class="col s12 m6 l6">
-        <p>Hello</p>
-
-    </div>
-    <div class="col s12 m6 l6">
-        <p>World</p>
-
-    </div>
-</div-->
-
-<div class="row">
+<div class="row roundcorners z-depth-1">
     <div class="col s12 m6">
-        <div class="card large indigo-text" style="overflow:auto">
+        <div class="card large z-depth-0" style="overflow:auto">
             <div class="container">
-                <ul class="collapsible expandable popout">
-                    <!-- Количество участников -->
+                <ul class="collapsible popout">
+
+                    <!-- Настройки мероприятия -->
                     <li class="active">
                         <div class="collapsible-header">
-                            Количество участников
+                            О мероприятии
                         </div>
                         <div class="collapsible-body">
                             <div class="input-field">
-                                <input id="number_of_participants" type="text" class="validate">
-                                <label for="number_of_participants">Введите количество участников</label>
+                                <input id="project_name" type="text" class="validate">
+                                <label for="project_name">Название</label>
                             </div>
-                        </div>
-                    </li>
-                    <!-- Дата мероприятия -->
-                    <li>
-                        <div class="collapsible-header">
-                            <i class="material-icons">filter_drama</i>Дата мероприятия
-                        </div>
-                        <div class="collapsible-body">
-                            <label for="datetime">Выберите дату</label>
-                            <input id="datetime" type="text" class="datepicker">
-                            <label for="timetime">Выберите время</label>
-                            <input id="timetime" type="text" class="timepicker">
-                        </div>
-                    </li>
-                    <!-- Дополнительный адрес получения ролика -->
-                    <li>
-                        <div class="collapsible-header">
-                            Дополнительный адрес получения ролика
-                        </div>
-                        <div class="collapsible-body">
+                            <div class="input-field">
+                                <input id="number_of_participants" type="text" class="validate">
+                                <label for="number_of_participants">Количество участников</label>
+                            </div>
+                            <div class="input-field">
+                                <label for="datetime">Дата</label>
+                                <input id="datetime" type="text" class="datepicker">
+                            </div>
+                            <div class="input-field">
+                                <label for="timetime">Время</label>
+                                <input id="timetime" type="text" class="timepicker">
+                            </div>
                             <div class="input-field">
                                 <input id="email" type="email" class="validate">
                                 <label for="email">Email</label>
                             </div>
                         </div>
                     </li>
-                    <!-- Загрузить центральные фото -->
+
+                    <!-- Настройки финального видео -->
                     <li>
                         <div class="collapsible-header">
-                            Загрузить центральные фото
-                        </div>
-                        <div class="collapsible-body">
-                            let there be uploads
-                        </div>
-                    </li>
-                    <!-- Способ наложения -->
-                    <li>
-                        <div class="collapsible-header">
-                            Способ наложения
-                        </div>
-                        <div class="collapsible-body">
-                            Способ наложения
-                        </div>
-                    </li>
-                    <!-- Способ слета фото -->
-                    <li>
-                        <div class="collapsible-header">
-                            Способ слета фото
-                        </div>
-                        <div class="collapsible-body">
-                            Способ слета фото
-                        </div>
-                    </li>
-                    <!-- Финальный кадр -->
-                    <li>
-                        <div class="collapsible-header">
-                            Финальный кадр
-                        </div>
-                        <div class="collapsible-body">
-                            Финальный кадр
-                        </div>
-                    </li>
-                    <!-- Время генерации финального ролика -->
-                    <li>
-                        <div class="collapsible-header">
-                            Время генерации финального ролика
-                        </div>
-                        <div class="collapsible-body">
-                            <label for="finaldatetime">Выберите дату</label>
-                            <input id="finaldatetime" type="text" class="datepicker">
-                            <label for="finaltimetime">Выберите время</label>
-                            <input id="finaltimetime" type="text" class="timepicker">
-                        </div>
-                    </li>
-                    <!-- Название проекта -->
-                    <li>
-                        <div class="collapsible-header">
-                            Название проекта
+                            Настройки видео
                         </div>
                         <div class="collapsible-body">
                             <div class="input-field">
-                                <input id="project_name" type="text" class="validate">
-                                <label for="project_name">Введите название проекта</label>
+                                <input id="overlay_method" type="text" class="validate">
+                                <label for="overlay_method">Способ наложения</label>
                             </div>
+                            <div class="input-field">
+                                <input id="fly_method" type="text" class="validate">
+                                <label for="fly_method">Способ слета фото</label>
+                            </div>
+                            <div class="input-field">
+                                <input id="final_frame" type="text" class="validate">
+                                <label for="final_frame">Финальный кадр</label>
+                            </div>
+                            <p>
+                                <label>
+                                    <input id="central_photo_checkbox" type="checkbox" class="filled-in" />
+                                    <span>Забронировать места для центральных фото</span>
+                                </label>
+                            </p>
+                            <div id="central_photo_div" class="file-field input-field">
+                                <div class="btn">
+                                    <span>Загрузить</span>
+                                    <input type="file" multiple>
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input id="central_photo" class="file-path validate" type="text">
+                                </div>
+                            </div>
+
                         </div>
                     </li>
-                    <!-- Загрузить логотип -->
+
+                    <!-- Настройки галереи -->
                     <li>
                         <div class="collapsible-header">
-                            Загрузить логотип
+                            Настройки галереи
                         </div>
                         <div class="collapsible-body">
-                            let there be logo
-                        </div>
-                    </li>
-                    <!-- Настроить фон -->
-                    <li>
-                        <div class="collapsible-header">
-                            Настроить фон
-                        </div>
-                        <div class="collapsible-body">
+                            <div class="file-field input-field">
+                                <p> Логотип </p>
+                                <div class="btn">
+                                    <span>Загрузить</span>
+                                    <input type="file">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text">
+                                </div>
+                            </div>
                             <div id="colorpick">
+                                <p>Цвет фона</p>
                                 <input type="text" class='hide' value="rgb(255, 128, 0)" />
                             </div>
                         </div>
                     </li>
+
                 </ul>
             </div>
         </div>
     </div>
-    <div class="col s12 m6">
-        <div class="card-panel teal">
-            <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+    <div class="col s12 m6 roundcorners" style="background-color: blueviolet;">
+        <div class="card large z-depth-0" style="overflow:auto">
+            I am a very simple card. I am good at containing small bits of information.
                 I am convenient because I require little markup to use effectively. I am similar to what is called a
                 panel in other frameworks.
-            </span>
+            
         </div>
     </div>
 </div>

@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // Init Collapsible
-var elem = document.querySelector('.collapsible.expandable');
+var elem = document.querySelector('.collapsible');
 var instance = M.Collapsible.init(elem, {
-    accordion: false
+    accordion: true
 });
 
 // Datepicker Language
@@ -69,5 +69,27 @@ $(function () {
         popover: false,
         inline: true,
         container: '#colorpick'
+    });
+});
+
+// Checkbox for central photos
+$(function () {
+    // Get the form fields and hidden div
+    var checkbox = $("#central_photo_checkbox");
+    var hidden = $("#central_photo_div");
+    // Hide the fields.
+    if (checkbox.is(':checked')) {
+        hidden.show();
+    } else {
+        hidden.hide();
+    }
+    // Setup an event listener for when the state of the 
+    // checkbox changes.
+    checkbox.change(function () {
+        if (checkbox.is(':checked')) {
+            hidden.show();
+        } else {
+            hidden.hide();
+        }
     });
 });
