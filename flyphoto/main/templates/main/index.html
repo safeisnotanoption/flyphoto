@@ -7,13 +7,13 @@ FlyPhoto
 {% block content %}
 
 <a class="waves-effect waves-purple btn-flat">
-    <i class="material-icons indigo-text" style="font-size: 36px; vertical-align: middle;">
+    <i class="material-icons indigo-text">
         arrow_back_ios
     </i>
     К проекту
 </a>
 
-<div class="row roundcorners z-depth-1">
+<div class="row roundcorners z-depth-roundoutline">
     <div class="col s12 m6">
         <div class="card large z-depth-0" style="overflow:auto">
             <div class="container">
@@ -22,7 +22,14 @@ FlyPhoto
                     <!-- Настройки мероприятия -->
                     <li class="active">
                         <div class="collapsible-header">
-                            О мероприятии
+                            <div class="container">
+                                О мероприятии
+                            </div>
+                            <div class="container" style="text-align: right;">
+                                <span class="material-icons">
+                                    event_available
+                                </span>
+                            </div>
                         </div>
                         <div class="collapsible-body">
                             <div class="input-field">
@@ -51,7 +58,14 @@ FlyPhoto
                     <!-- Настройки финального видео -->
                     <li>
                         <div class="collapsible-header">
-                            Настройки видео
+                            <div class="container">
+                                Настройки видео
+                            </div>
+                            <div class="container" style="text-align: right;">
+                                <span class="material-icons">
+                                    movie
+                                </span>
+                            </div>
                         </div>
                         <div class="collapsible-body">
                             <div class="input-field">
@@ -88,7 +102,14 @@ FlyPhoto
                     <!-- Настройки галереи -->
                     <li>
                         <div class="collapsible-header">
-                            Настройки галереи
+                            <div class="container">
+                                Настройки галереи
+                            </div>
+                            <div class="container" style="text-align: right;">
+                                <span class="material-icons">
+                                    collections
+                                </span>
+                            </div>
                         </div>
                         <div class="collapsible-body">
                             <div class="file-field input-field">
@@ -112,12 +133,12 @@ FlyPhoto
             </div>
         </div>
     </div>
-    <div class="col s12 m6 roundcorners" style="background-color: blueviolet;">
-        <div class="card large z-depth-0" style="overflow:auto">
-            I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively. I am similar to what is called a
-                panel in other frameworks.
-            
+    <div class="col s12 m6 roundcorners" style="background: linear-gradient(180deg, #4B21A6 0%, #D490CD 100%);">
+        <div class="card large z-depth-0"
+            style="overflow:auto; background: linear-gradient(180deg, #4B21A6 0%, #D490CD 100%);">
+            <div class="rounded-mask center-align width100" style="padding:20px">
+                <video class="width100" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop></video>
+            </div>
         </div>
     </div>
 </div>

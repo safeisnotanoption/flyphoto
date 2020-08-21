@@ -1,3 +1,43 @@
+body {
+    font-family: 'Inter', serif;
+    font-size: 20px;
+}
+
 .roundcorners {
     border-radius: 20px;
+}
+
+.z-depth-roundoutline {
+    box-shadow: 0px 0px 2px 2px #9F84D9;
+}
+
+.rounded-mask {
+    border-radius: 20px;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.btn {
+    border-radius: 10px;
+}
+
+nav ul a {
+    color: black;
+}
+
+nav .brand-logo {
+    color: black;
+}
+
+.collapsible-body {
+    background-color: #F3F0F9;
+}
+
+.material-icons {
+    font-size: 28px; 
+    vertical-align: middle;
 }
