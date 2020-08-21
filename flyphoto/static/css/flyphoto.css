@@ -21,7 +21,7 @@ body {
     width: 100%;
 }
 
-.btn {
+.btn, .btn-large {
     border-radius: 10px;
 }
 
@@ -31,6 +31,7 @@ nav ul a {
 
 nav .brand-logo {
     color: black;
+    padding-top: 10px
 }
 
 .collapsible-body {
@@ -38,6 +39,34 @@ nav .brand-logo {
 }
 
 .material-icons {
-    font-size: 28px; 
+    font-size: 28px;
     vertical-align: middle;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #4B21A6;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #9F84D9;
+}
+
+.sidenav-trigger {
+    color: black;
 }
