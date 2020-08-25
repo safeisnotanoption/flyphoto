@@ -1,0 +1,174 @@
+{% extends 'main/base.html' %}
+{% load materializecss %}
+
+{% block title %}
+FlyPhoto
+{% endblock %}
+
+{% block content %}
+
+
+<a class="waves-effect waves-purple btn-flat">
+    <i class="material-icons indigo-text">
+        arrow_back_ios
+    </i>
+    К проекту
+</a>
+
+<form action="{% url 'edit_project' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+{{ form|materializecss }}
+<div class="right-align">
+    <input type="submit" class="btn-large deep-purple darken-4 waves-effect waves-light white-text"
+        value="Заказать услугу">
+    <!--a href="#" type="submit" class="btn" style="color: black; background: #C4C4C4;">Войти</a-->
+</div>
+</form>
+
+<form action="{% url 'edit_project' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row roundcorners z-depth-roundoutline">
+        <div class="col s12 m6">
+            <div class="card large z-depth-0" style="overflow:auto">
+                <div class="container">
+                    <ul class="collapsible popout">
+
+                        <!-- Настройки мероприятия -->
+                        <li class="active">
+                            <div class="collapsible-header">
+                                <div class="container">
+                                    О мероприятии
+                                </div>
+                                <div class="container" style="text-align: right;">
+                                    <span class="material-icons">
+                                        event_available
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="input-field">
+                                    {{ form.project_name }}
+                                    {{ form.project_name.label_tag }}
+                                </div>
+                                <div class="input-field">
+                                    {{ form.number_of_participants }}
+                                    <label for="number_of_participants">Количество участников</label>
+                                </div>
+                                <div class="input-field">
+                                    {{ form.datetime_date.label_tag }}
+                                    {{ form.datetime_date }}
+                                </div>
+                                <div class="input-field">
+                                    {{ form.datetime_time.label_tag }}
+                                    {{ form.datetime_time }}
+                                </div>
+                                <div class="input-field">
+                                    {{ form.email }}
+                                    {{ form.email.label_tag }}
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Настройки финального видео -->
+                        <li>
+                            <div class="collapsible-header">
+                                <div class="container">
+                                    Настройки видео
+                                </div>
+                                <div class="container" style="text-align: right;">
+                                    <span class="material-icons">
+                                        movie
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="input-field">
+                                    {{ form.blend_mode}}
+                                    <label for="blend_method">Способ наложения</label>
+                                </div>
+                                <div class="input-field">
+                                    {{ form.fly_mode}}
+                                    <label for="fly_mode">Способ слета фото</label>
+                                </div>
+                                <div class="input-field">
+                                    <input id="final_frame" type="text" class="validate">
+                                    <label for="final_frame">Финальный кадр</label>
+                                </div>
+                                <!--p>
+                                    <label>
+                                        <input id="central_photo_checkbox" type="checkbox" class="filled-in" />
+                                        <span>Забронировать места для центральных фото</span>
+                                    </label>
+                                </p>
+                                <div id="central_photo_div" class="file-field input-field">
+                                    <div class="btn waves-effect waves-light">
+                                        <span>Загрузить</span>
+                                        <input type="file" multiple>
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input id="central_photo" class="file-path validate" type="text">
+                                    </div>
+                                </div-->
+
+                            </div>
+                        </li>
+
+                        <!-- Настройки галереи -->
+                        <li>
+                            <div class="collapsible-header">
+                                <div class="container">
+                                    Настройки галереи
+                                </div>
+                                <div class="container" style="text-align: right;">
+                                    <span class="material-icons">
+                                        collections
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="file-field">
+                                    <div class="custom-label">
+                                        Логотип
+                                    </div>
+                                    <div class="btn">
+                                        <span>Загрузить</span>
+                                        {{ form.logo }}
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text">
+                                    </div>
+                                </div>
+                                <div id="colorpick">
+                                    <div class="custom-label">
+                                        Цвет фона
+                                    </div>
+                                    <input type="text" class='hide' value="rgb(255, 128, 0)" />
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6 roundcorners" style="background: linear-gradient(180deg, #4B21A6 0%, #D490CD 100%);">
+            <div class="card large z-depth-0"
+                style="overflow:auto; background: linear-gradient(180deg, #4B21A6 0%, #D490CD 100%);">
+                <div class="rounded-mask center-align width100" style="padding:20px">
+                    <video class="width100" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop
+                        playsinline></video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-align">
+        <input type="submit" class="btn-large deep-purple darken-4 waves-effect waves-light white-text"
+            value="Заказать услугу">
+        <!--a href="#" type="submit" class="btn" style="color: black; background: #C4C4C4;">Войти</a-->
+    </div>
+
+</form>
+
+
+{% endblock %}

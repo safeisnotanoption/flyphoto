@@ -6,146 +6,29 @@ FlyPhoto
 
 {% block content %}
 
-<a class="waves-effect waves-purple btn-flat">
-    <i class="material-icons indigo-text">
-        arrow_back_ios
-    </i>
-    К проекту
-</a>
 
-<div class="row roundcorners z-depth-roundoutline">
+<div class="row" style="padding: 40px 0 0 0">
+    <div class="col s12 m6" style="padding: 0">
+        <h4><b>ВЫ МОЖЕТЕ СОЗДАТЬ СВОЕ ВИДЕО ДЛЯ МЕРОПРИЯТИЯ</b></h4>
+    </div>
     <div class="col s12 m6">
-        <div class="card large z-depth-0" style="overflow:auto">
-            <div class="container">
-                <ul class="collapsible popout">
-
-                    <!-- Настройки мероприятия -->
-                    <li class="active">
-                        <div class="collapsible-header">
-                            <div class="container">
-                                О мероприятии
-                            </div>
-                            <div class="container" style="text-align: right;">
-                                <span class="material-icons">
-                                    event_available
-                                </span>
-                            </div>
-                        </div>
-                        <div class="collapsible-body">
-                            <div class="input-field">
-                                <input id="project_name" type="text" class="validate">
-                                <label for="project_name">Название</label>
-                            </div>
-                            <div class="input-field">
-                                <input id="number_of_participants" type="text" class="validate">
-                                <label for="number_of_participants">Количество участников</label>
-                            </div>
-                            <div class="input-field">
-                                <label for="datetime">Дата</label>
-                                <input id="datetime" type="text" class="datepicker">
-                            </div>
-                            <div class="input-field">
-                                <label for="timetime">Время</label>
-                                <input id="timetime" type="text" class="timepicker">
-                            </div>
-                            <div class="input-field">
-                                <input id="email" type="email" class="validate">
-                                <label for="email">Email</label>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- Настройки финального видео -->
-                    <li>
-                        <div class="collapsible-header">
-                            <div class="container">
-                                Настройки видео
-                            </div>
-                            <div class="container" style="text-align: right;">
-                                <span class="material-icons">
-                                    movie
-                                </span>
-                            </div>
-                        </div>
-                        <div class="collapsible-body">
-                            <div class="input-field">
-                                <input id="overlay_method" type="text" class="validate">
-                                <label for="overlay_method">Способ наложения</label>
-                            </div>
-                            <div class="input-field">
-                                <input id="fly_method" type="text" class="validate">
-                                <label for="fly_method">Способ слета фото</label>
-                            </div>
-                            <div class="input-field">
-                                <input id="final_frame" type="text" class="validate">
-                                <label for="final_frame">Финальный кадр</label>
-                            </div>
-                            <p>
-                                <label>
-                                    <input id="central_photo_checkbox" type="checkbox" class="filled-in" />
-                                    <span>Забронировать места для центральных фото</span>
-                                </label>
-                            </p>
-                            <div id="central_photo_div" class="file-field input-field">
-                                <div class="btn waves-effect waves-light">
-                                    <span>Загрузить</span>
-                                    <input type="file" multiple>
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input id="central_photo" class="file-path validate" type="text">
-                                </div>
-                            </div>
-
-                        </div>
-                    </li>
-
-                    <!-- Настройки галереи -->
-                    <li>
-                        <div class="collapsible-header">
-                            <div class="container">
-                                Настройки галереи
-                            </div>
-                            <div class="container" style="text-align: right;">
-                                <span class="material-icons">
-                                    collections
-                                </span>
-                            </div>
-                        </div>
-                        <div class="collapsible-body">
-                            <div class="file-field input-field">
-                                <p> Логотип </p>
-                                <div class="btn">
-                                    <span>Загрузить</span>
-                                    <input type="file">
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text">
-                                </div>
-                            </div>
-                            <div id="colorpick">
-                                <p>Цвет фона</p>
-                                <input type="text" class='hide' value="rgb(255, 128, 0)" />
-                            </div>
-                        </div>
-                    </li>
-
-                </ul>
+        <div>
+            <div>
+                <video class="width100" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop
+                    style="padding: 20px 0">
+                </video>
             </div>
         </div>
     </div>
-    <div class="col s12 m6 roundcorners" style="background: linear-gradient(180deg, #4B21A6 0%, #D490CD 100%);">
-        <div class="card large z-depth-0"
-            style="overflow:auto; background: linear-gradient(180deg, #4B21A6 0%, #D490CD 100%);">
-            <div class="rounded-mask center-align width100" style="padding:20px">
-                <video class="width100" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop></video>
-            </div>
+    <div class="col s12 m6">
+        <div>
+            <a href="{% url 'index' %}" class="btn-large deep-purple darken-4 waves-effect waves-light"
+                >Попробовать</a>
         </div>
     </div>
 </div>
 
-<div class="right-align">
-    <a href="{% url 'index' %}" class="btn-large deep-purple darken-4 waves-effect waves-light">Заказать услугу</a>
-</div>
+
 
 
 {% endblock %}

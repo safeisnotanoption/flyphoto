@@ -39,7 +39,7 @@ inter_en = {
 
 // Datepicker Options
 dateOptions = {
-    format: 'dd/mm/yyyy',
+    format: 'yyyy-mm-dd',
     firstDay: 1,
     i18n: inter_ru,
 }
@@ -63,6 +63,15 @@ document.addEventListener('DOMContentLoaded', function () {
     var instances = M.Timepicker.init(elems, timeOptions);
 });
 
+// Init Datetimepicker
+//$(document).ready(function(){
+//
+//    // Initialize materialize data picker
+//    $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
+//    $('select').formSelect();
+//  
+//  });
+
 // Init Colorpicker
 $(function () {
     $('#colorpick').colorpicker({
@@ -73,23 +82,29 @@ $(function () {
 });
 
 // Checkbox for central photos
-$(function () {
-    // Get the form fields and hidden div
-    var checkbox = $("#central_photo_checkbox");
-    var hidden = $("#central_photo_div");
-    // Hide the fields.
-    if (checkbox.is(':checked')) {
-        hidden.show();
-    } else {
-        hidden.hide();
-    }
-    // Setup an event listener for when the state of the 
-    // checkbox changes.
-    checkbox.change(function () {
-        if (checkbox.is(':checked')) {
-            hidden.show();
-        } else {
-            hidden.hide();
-        }
-    });
+// $(function () {
+//     // Get the form fields and hidden div
+//     var checkbox = $("#central_photo_checkbox");
+//     var hidden = $("#central_photo_div");
+//     // Hide the fields.
+//     if (checkbox.is(':checked')) {
+//         hidden.show();
+//     } else {
+//         hidden.hide();
+//     }
+//     // Setup an event listener for when the state of the 
+//     // checkbox changes.
+//     checkbox.change(function () {
+//         if (checkbox.is(':checked')) {
+//             hidden.show();
+//         } else {
+//             hidden.hide();
+//         }
+//     });
+// });
+
+// Init selects
+document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, {});
 });

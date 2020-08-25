@@ -1,7 +1,16 @@
 from PIL import Image
 from django import forms
 from django.core.files import File
-from .models import Photo
+from .models import Project, Photo
+
+
+class ProjectForm(forms.ModelForm):
+
+    class Meta:
+        model = Project
+        fields = ['project_name', 'number_of_participants', 'datetime', 'email',
+                  'blend_mode', 'fly_mode', 'final_shot',
+                  'logo', 'background_color']
 
 
 class PhotoForm(forms.ModelForm):

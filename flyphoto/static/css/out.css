@@ -3449,7 +3449,7 @@ small {
   .card.medium {
     height: 400px; }
   .card.large {
-    height: 500px; }
+    height: 600px; }
   .card.horizontal {
     display: flex; }
     .card.horizontal.small .card-image, .card.horizontal.medium .card-image, .card.horizontal.large .card-image {
@@ -4694,8 +4694,8 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
 
 .input-field {
   position: relative;
-  margin-top: 1rem;
-  margin-bottom: 1rem; }
+  margin-top: 2rem;
+  margin-bottom: 2rem; }
   .input-field.inline {
     display: inline-block;
     vertical-align: middle;

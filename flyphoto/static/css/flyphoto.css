@@ -70,3 +70,7 @@ nav .brand-logo {
 .sidenav-trigger {
     color: black;
 }
+
+input[type="submit" i] {
+    color: white
+}
