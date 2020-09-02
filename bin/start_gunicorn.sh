@@ -1,3 +1,3 @@
 #!/bin/bash
 source /home/sinao/flyphoto/env/bin/activate
-exec gunicorn -c "/home/sinao/flyphoto/flyphoto/gunicorn_config.py" flyphoto.wsgi
+exec gunicorn -c "/home/sinao/flyphoto/gunicorn_config.py" flyphoto.wsgi
