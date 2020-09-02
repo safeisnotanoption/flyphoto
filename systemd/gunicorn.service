@@ -1,0 +1,13 @@
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=sinao
+Group=www-data
+WorkingDirectory=/home/sinao/flyphoto
+ExecStart=/home/sinao/flyphoto/env/bin/gunicorn --workers 3 --bind unix:/home/sinao/flyphoto/gunicorn/gunicorn.sock config.wsgi:application --access-logfile /home/sinao/flyphoto/gunicorn/access.log --error-logfile /home/sinao/flyphoto/gunicorn/error.log
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
