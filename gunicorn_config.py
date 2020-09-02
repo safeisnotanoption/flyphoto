@@ -1,7 +1,7 @@
 # Number of workers = num_of_cores * 2 + 1
 
 command = '/home/sinao/flyphoto/env/bin/gunicorn'
-pythonpath = '/home/sinao/flyphoto/flyphoto'
+pythonpath = '/home/sinao/flyphoto'
 bind = '127.0.0.1:8001'
 workers = 3
 user = 'sinao'
