@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 
 from .models import Photo
-from .forms import ProjectForm, PhotoForm
+from .forms import ProjectForm
 
 
 def index(request):
@@ -31,15 +31,3 @@ def edit_project(request):
 
 def contacts(request):
     return render(request, 'main/contacts.html')
-
-
-def photo_list(request):
-    photos = Photo.objects.all()
-    if request.method == 'POST':
-        form = PhotoForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('photo_list')
-    else:
-        form = PhotoForm()
-    return render(request, 'album/photo_list.html', {'form': form, 'photos': photos})
