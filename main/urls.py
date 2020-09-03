@@ -1,5 +1,4 @@
 from django.urls import path, include
-from rest_framework.authtoken.views import obtain_auth_token
 from . import views
 
 urlpatterns = [
@@ -7,7 +6,4 @@ urlpatterns = [
     path('edit_project', views.edit_project, name='edit_project'),
     path('contacts', views.contacts, name='contacts'),
     path('photo_list', views.photo_list, name='photo_list'),
-
-    path('auth', include('djoser.urls')),
-    path('auth/token', obtain_auth_token, name='token')
 ]

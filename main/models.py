@@ -1,4 +1,3 @@
-from colorfield.fields import ColorField
 from django.db import models
 
 
@@ -6,7 +5,8 @@ class Project(models.Model):
     """Проекты и их настройки"""
     project_name = models.CharField('Название мероприятия', max_length=100)  # Название мероприятия
     number_of_participants = models.IntegerField('Количество участников')  # Количество участников
-    datetime = models.DateField('Дата')  # Дата и время
+    date = models.DateField('Дата')  # Дата и время
+    time = models.TimeField('Время')  # Дата и время
     email = models.CharField('Email', max_length=100)  # Email
 
     BLEND_MODE_CHOICES = [
@@ -39,7 +39,6 @@ class Project(models.Model):
     # has_central = models.BooleanField('Забронировать места для центральных фото', default=False)
 
     logo = models.ImageField('Логотип')  # Логотип
-    background_color = ColorField('Цвет фона', default='#FF0000')  # Цвет фона
 
     created_at = models.DateTimeField('Создан', auto_now_add=True)
 
