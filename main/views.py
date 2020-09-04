@@ -1,7 +1,4 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseRedirect
-
-from .models import Photo
 from .forms import ProjectForm
 
 
@@ -18,7 +15,7 @@ def edit_project(request):
         if form.is_valid():
             print('form is valid')
             form.save()
-            return HttpResponseRedirect('/edit_project')
+            return redirect('/edit_project')
         else:
             print("form isn't valid")
 

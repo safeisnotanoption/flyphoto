@@ -9,6 +9,4 @@ class ProjectForm(forms.ModelForm):
 
     class Meta:
         model = Project
-        fields = ['project_name', 'number_of_participants', 'date', 'time', 'email',
-                  'blend_mode', 'fly_mode', 'final_shot',
-                  'logo']
+        fields = '__all__'
