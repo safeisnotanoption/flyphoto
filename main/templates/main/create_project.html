@@ -14,11 +14,13 @@ FlyPhoto
     К проекту
 </a>
 
-<form action="{% url 'edit_project' %}" method="post" enctype="multipart/form-data">
+<form action="{% url 'create_project' %}" method="post" enctype="multipart/form-data">
     <div class="row roundcorners z-depth-roundoutline">
         <div class="col s12 m6">
             <div class="card large z-depth-0" style="overflow:auto">
                 <div class="container">
+
+                    {% csrf_token %}
 
                     {{ form.as_p }}
 
