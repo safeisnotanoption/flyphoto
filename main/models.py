@@ -1,8 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Project(models.Model):
     """Проекты и их настройки"""
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     project_name = models.CharField('Название мероприятия', max_length=100)  # Название мероприятия
     number_of_participants = models.IntegerField('Количество участников')  # Количество участников
     date = models.DateField('Дата')  # Дата и время
@@ -57,3 +59,4 @@ class Photo(models.Model):
     class Meta:
         verbose_name = 'фотография'
         verbose_name_plural = 'фотографии'
+
