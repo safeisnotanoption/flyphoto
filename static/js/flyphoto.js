@@ -37,18 +37,18 @@ inter_en = {
     weekdaysAbbrev: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
 };
 
-// // Datepicker Options
-// dateOptions = {
-//     format: 'yyyy-mm-dd',
-//     firstDay: 1,
-//     i18n: inter_ru,
-// }
-// 
-// // Init Datepicker
-// document.addEventListener('DOMContentLoaded', function () {
-//     var elems = document.querySelectorAll('.datepicker');
-//     var instances = M.Datepicker.init(elems, dateOptions);
-// });
+// Datepicker Options
+dateOptions = {
+    format: 'yyyy-mm-dd',
+    firstDay: 1,
+    i18n: inter_ru,
+}
+
+// Init Datepicker
+document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, dateOptions);
+});
 
 //Timepicker Language
 //Timepicker Options

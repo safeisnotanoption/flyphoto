@@ -6,34 +6,42 @@ FlyPhoto
 
 {% block content %}
 
-<form action="" method="post">
-    <div class="row roundcorners z-depth-roundoutline">
 
+<a class="waves-effect waves-purple btn-flat">
+    <i class="material-icons indigo-text">
+        arrow_back_ios
+    </i>
+    К проекту
+</a>
+
+<form action="{% url 'edit_video' project_id %}" method="post" enctype="multipart/form-data">
+    <div class="row roundcorners z-depth-roundoutline">
         <div class="col s12 m6">
             <div class="card large z-depth-0" style="overflow:auto">
                 <div class="container">
-                    <h3 class="center-align"><b>Войти в аккаунт</b></h3>
-                    
+
                     {% csrf_token %}
 
                     {{ form.as_p }}
 
-                    <input type="submit" class="btn-large deep-purple darken-4 white-text" value="Войти">
                 </div>
             </div>
         </div>
-
         <div class="col s12 m6 roundcorners" style="background: linear-gradient(180deg, #4B21A6 0%, #D490CD 100%);">
             <div class="card large z-depth-0"
                 style="overflow:auto; background: linear-gradient(180deg, #4B21A6 0%, #D490CD 100%);">
-                <div class="container center-align">
-                    <h3 class="white-text" style="margin: 150px 0"><b>Нет аккаунта?</b></h3>
-                    <a href="{% url 'registration' %}" class="btn-large btn-block white black-text">Регистрация</a>
+                <div class="rounded-mask center-align width100" style="padding:20px">
+                    <video class="width100" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop
+                        playsinline></video>
                 </div>
             </div>
         </div>
-        
     </div>
+
+    <div class="right-align">
+        <input type="submit" class="btn-large deep-purple darken-4 white-text" value="Сохранить">
+    </div>
+
 </form>
 
 

@@ -9,7 +9,11 @@ class ProjectForm(forms.ModelForm):
     """Проекты и их настройки"""
     class Meta:
         model = Project
-        fields = ('project_name', 'num_of_participants', 'date', 'time', 'email')
+        fields = ('project_name', 'address', 'num_of_participants', 'date', 'time', 'email')
+        widgets = {
+            'date': TextInput(attrs={'class': 'datepicker'}),
+            'time': TextInput(attrs={'class': 'timepicker'}),
+        }
 
 
 class VideoSettingsForm(forms.ModelForm):
@@ -23,4 +27,4 @@ class WebsiteSettingsForm(forms.ModelForm):
     """Настройки веб-страницы"""
     class Meta:
         model = WebsiteSettings
-        fields = ('address', 'logo', 'header_color', 'background_color')
+        fields = ('logo', 'header_color', 'background_color')
