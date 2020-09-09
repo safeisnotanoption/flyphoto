@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.urls import reverse
 from django.core.validators import validate_slug
 
 
@@ -8,11 +7,14 @@ class Project(models.Model):
     """Проекты и их настройки"""
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     project_name = models.CharField('Название мероприятия', max_length=100)  # Название мероприятия
-    address = models.CharField('Адрес страницы', max_length=30, unique=True, validators=[validate_slug])
-    num_of_participants = models.IntegerField('Количество участников')  # Количество участников
+    address = models.CharField('Адрес страницы', max_length=30, unique=True, validators=[validate_slug],
+                               help_text='Адрес страницы, на которую будут заходить ваши посетители для загрузки '
+                                         'своих фотографий')
+    num_of_participants = models.IntegerField('Количество участников',
+                                              help_text='Приблизительное количество участников')
     date = models.DateField('Дата')  # Дата
     time = models.TimeField('Время')  # Время
-    email = models.CharField('Email', max_length=100)  # Email
+    email = models.CharField('Email', max_length=100, help_text='Мы вышлем финальное видео на данный email')  # Email
     created_at = models.DateTimeField('Создан', auto_now_add=True)
     updated_at = models.DateTimeField('Создан', auto_now_add=True)
 
@@ -58,7 +60,8 @@ class VideoSettings(models.Model):
                                 default='1'
                                 )
     # Финальный кадр
-    final_shot = models.CharField('Финальный кадр', max_length=50, default='Финальный кадр')  # Финальный кадр
+    final_shot = models.ImageField('Финальный кадр', default='FlyPhoto.png', upload_to='finals/',
+                                   help_text='Изображение, в которое слетаются фотографии')
 
     class Meta:
         verbose_name = 'видео'
@@ -71,9 +74,13 @@ class VideoSettings(models.Model):
 class WebsiteSettings(models.Model):
     """Настройки веб-страницы"""
     project = models.OneToOneField(Project, on_delete=models.CASCADE)
-    logo = models.ImageField('Логотип')  # Логотип
-    header_color = models.CharField('Цвет заголовка', max_length=20)
-    background_color = models.CharField('Цвет страницы', max_length=20)
+    logo = models.ImageField('Логотип', default='FlyPhoto.png', upload_to='logos/',
+                             help_text='Логотип, расположенный в заголовке веб-страницы. Допускаются изображения в '
+                                       'форматах JPG и PNG, в том числе с прозрачным фоном')  # Логотип
+    header_color = models.CharField('Цвет заголовка', default='#FFFFFF', max_length=20,
+                                    help_text='Цвет заголовка, на котором будет располагаться логотип')
+    background_color = models.CharField('Цвет страницы', default='#FFFFFF', max_length=20,
+                                        help_text='Основной цвет страницы')
 
     class Meta:
         verbose_name = 'веб-страница'

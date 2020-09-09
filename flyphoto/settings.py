@@ -43,10 +43,12 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    #'allauth.socialaccount.providers.google',
-    #'allauth.socialaccount.providers.facebook',
-    #'allauth.socialaccount.providers.instagram',
-    #'allauth.socialaccount.providers.vk',
+    # 'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.facebook',
+    # 'allauth.socialaccount.providers.instagram',
+    # 'allauth.socialaccount.providers.vk',
+
+    'colorfield'
 ]
 
 # ALLAUTH CONFIG
@@ -159,4 +161,6 @@ STATICFILES_DIRS = (
 )
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

@@ -20,7 +20,7 @@ def create_project(request):
             project = form.save(commit=False)
             project.user = request.user
             project.save()
-            return redirect(reverse('edit_project', args=(project.id,)))
+            return redirect(reverse('edit_video', args=(project.id,)))
         else:
             print("form isn't valid")
 
@@ -40,9 +40,14 @@ def my_projects(request):
     return render(request, 'main/my_projects.html', {'projects': projects})
 
 
+def get_object(model_object, project_id):
+    obj, created = model_object.objects.get_or_create(project_id=project_id)
+    return obj
+
+
 @login_required
 def edit_video(request, project_id):
-    obj, created = VideoSettings.objects.get_or_create(project_id=project_id)
+    obj = get_object(VideoSettings, project_id)
 
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -52,7 +57,7 @@ def edit_video(request, project_id):
         if form.is_valid():
             print('form is valid')
             form.save()
-            return redirect(reverse('edit_video', args=(project_id,)))
+            return redirect(reverse('edit_website', args=(project_id,)))
         else:
             print('form isnt valid')
             print(form.errors)
@@ -65,7 +70,7 @@ def edit_video(request, project_id):
 
 @login_required
 def edit_website(request, project_id):
-    obj, created = WebsiteSettings.objects.get_or_create(project_id=project_id)
+    obj = get_object(WebsiteSettings, project_id)
 
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -75,7 +80,7 @@ def edit_website(request, project_id):
         if form.is_valid():
             print('form is valid')
             form.save()
-            return redirect(reverse('edit_video', args=(project_id,)))
+            return redirect('my_projects')
         else:
             print('form isnt valid')
             print(form.errors)
