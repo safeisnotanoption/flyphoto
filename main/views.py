@@ -32,6 +32,15 @@ def create_project(request):
 
 
 @login_required
+def my_projects(request):
+    projects = Project.objects.filter(user=request.user)
+    video_settings = VideoSettings.objects.filter(project=projects)
+    website_settings = WebsiteSettings.objects.filter(project=projects)
+
+    return render(request, 'main/my_projects.html', {'projects': projects})
+
+
+@login_required
 def edit_video(request, project_id):
     obj, created = VideoSettings.objects.get_or_create(project_id=project_id)
 
@@ -52,6 +61,29 @@ def edit_video(request, project_id):
         form = VideoSettingsForm(instance=obj)
 
     return render(request, 'main/edit_video.html', {'form': form, 'project_id': project_id})
+
+
+@login_required
+def edit_website(request, project_id):
+    obj, created = WebsiteSettings.objects.get_or_create(project_id=project_id)
+
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = WebsiteSettingsForm(request.POST, instance=obj)
+        # check whether it's valid:
+        if form.is_valid():
+            print('form is valid')
+            form.save()
+            return redirect(reverse('edit_video', args=(project_id,)))
+        else:
+            print('form isnt valid')
+            print(form.errors)
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = WebsiteSettingsForm(instance=obj)
+
+    return render(request, 'main/edit_website.html', {'form': form, 'project_id': project_id})
 
 
 def contacts(request):

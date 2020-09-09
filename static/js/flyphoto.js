@@ -1,4 +1,4 @@
-// Init sidebar
+// Init Sidebar
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, {});
@@ -10,6 +10,13 @@ var elem = document.querySelector('.collapsible');
 var instance = M.Collapsible.init(elem, {
     accordion: true
 });
+
+
+// Init Tabs
+$(document).ready(function(){
+    $('.tabs').tabs();
+  });
+
 
 // Datepicker Language
 inter_ru = {
