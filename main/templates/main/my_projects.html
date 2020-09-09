@@ -27,7 +27,7 @@ FlyPhoto
       <div class="card-content lighten-4">
         <div id="project{{ p.id }}_1">
           <p>Название проекта: <b>{{ p.project_name }}</b></p>
-          <p>Ссылка на страницу: <b><a href="http://{{ request.get_host }}/p/{{ p.address }}">{{ request.get_host }}/p/{{ p.address }}</a></b></p>
+          <p>Ссылка на страницу: <b><a href="/p/{{ p.address }}">flyphoto.tech/p/{{ p.address }}</a></b></p>
           <p>Количество участников: <b>{{ p.num_of_participants }}</b></p>
           <p>Дата мероприятия: <b>{{ p.date }} {{ p.time }}</b></p>
           <p>Email проекта: <b>{{ p.email }}</b></p>
@@ -35,10 +35,10 @@ FlyPhoto
         <div id="project{{ p.id }}_2">
           <p>Способ наложения: <b>{{ p.videosettings.blend_mode }}</b></p>
           <p>Способ слета: <b>{{ p.videosettings.fly_mode }}</b></p>
-          <p>Финальный кадр: <b><a href="{{ request.get_host }}{{ p.videosettings.final_shot.url }}">Ссылка</a></b>
+          <p>Финальный кадр: <b><a href="{{ p.videosettings.final_shot.url }}">Ссылка</a></b>
         </div>
         <div id="project{{ p.id }}_3">
-          <p>Логотип: <b><a href="{{ request.get_host }}{{ p.websitesettings.logo.url }}">Ссылка</a></b>
+          <p>Логотип: <b><a href="{{ p.websitesettings.logo.url }}">Ссылка</a></b>
           <p>Цвет заголовка: <b style="background-color: {{ p.websitesettings.header_color }}">{{ p.websitesettings.header_color }}</b></p>
           <p>Цвет страницы: <b style="background-color: {{ p.websitesettings.background_color }}">{{ p.websitesettings.background_color }}</b></p>
         </div>

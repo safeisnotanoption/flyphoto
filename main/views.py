@@ -55,7 +55,7 @@ def edit_project(request, project_id):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = ProjectForm(request.POST, instance=obj)
+        form = ProjectForm(request.POST, request.FILES, instance=obj)
         # check whether it's valid:
         if form.is_valid():
             print('form is valid')
@@ -84,7 +84,7 @@ def edit_video(request, project_id):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = VideoSettingsForm(request.POST, instance=obj)
+        form = VideoSettingsForm(request.POST, request.FILES, instance=obj)
         # check whether it's valid:
         if form.is_valid():
             print('form is valid')
@@ -113,7 +113,7 @@ def edit_website(request, project_id):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = WebsiteSettingsForm(request.POST, instance=obj)
+        form = WebsiteSettingsForm(request.POST, request.FILES, instance=obj)
         # check whether it's valid:
         if form.is_valid():
             print('form is valid')
