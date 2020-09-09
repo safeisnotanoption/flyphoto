@@ -25,15 +25,14 @@
             <ul class="right hide-on-med-and-down">
                 <li><a href="{% url 'index' %}" class="black-text">Главная</a></li>
                 <li><a href="{% url 'create_project' %}" class="black-text">Создать проект</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'my_projects' %}" class="black-text">Мои проекты</a></li>
+                {% endif %}
                 <li><a href="{% url 'contacts' %}" class="black-text">Контакты</a></li>
                 {% if request.user.is_authenticated %}
-
                 <li><a href="{% url 'account_logout' %}" class="purple-text"><b>{{ request.user.username }}</b></a></li>
-
                 {% else %}
-
                 <li><a href="{% url 'account_login' %}" class="btn" style="color: black; background: #C4C4C4;">Войти</a></li>
-
                 {% endif %}
             </ul>
         </div>

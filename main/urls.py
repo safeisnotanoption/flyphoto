@@ -9,6 +9,7 @@ urlpatterns = [
     path('my_projects', views.my_projects, name='my_projects'),
     path('edit_video/<int:project_id>', views.edit_video, name='edit_video'),
     path('edit_website/<int:project_id>', views.edit_website, name='edit_website'),
+    path('p/<str:project_address>', views.project_page, name='project_page'),
     path('contacts', views.contacts, name='contacts'),
 ]
 

@@ -8,28 +8,44 @@ FlyPhoto
 <h1>Мои проекты</h1>
 {% if projects %}
 <div class="row">
-    {% for p in projects %}
-    <div class="col s12 m6 l3 center-align">
-        <div class="card">
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-tabs">
-              <ul class="tabs tabs-fixed-width">
-                <li class="tab"><a href="#test4">Test 1</a></li>
-                <li class="tab"><a class="active" href="#test5">Test 2</a></li>
-                <li class="tab"><a href="#test6">Test 3</a></li>
-              </ul>
-            </div>
-            <div class="card-content grey lighten-4">
-              <div id="test4">Test 1</div>
-              <div id="test5">Test 2</div>
-              <div id="test6">Test 3</div>
-            </div>
-          </div>
+  {% for p in projects %}
+  <div class="col s12 m6 l6">
+    <div class="card medium hoverable">
+      <div class="card-content">
+        <div class="center-align" style="height:50px">
+          <img style="max-height:90%; max-width:90%" src="{{ p.websitesettings.logo.url }}">
+        </div>
+        <h5>{{ p.project_name }} .</h5>
+      </div>
+      <div class="card-tabs">
+        <ul class="tabs tabs-fixed-width">
+          <li class="tab"><a class="active" href="#project{{ p.id }}_1">Проект</a></li>
+          <li class="tab"><a href="#project{{ p.id }}_2">Видео</a></li>
+          <li class="tab"><a href="#project{{ p.id }}_3">Сайт</a></li>
+        </ul>
+      </div>
+      <div class="card-content lighten-4">
+        <div id="project{{ p.id }}_1">
+          <p>Название проекта: <b>{{ p.project_name }}</b></p>
+          <p>Ссылка на страницу: <b><a href="http://{{ request.get_host }}/p/{{ p.address }}">{{ request.get_host }}/p/{{ p.address }}</a></b></p>
+          <p>Количество участников: <b>{{ p.num_of_participants }}</b></p>
+          <p>Дата мероприятия: <b>{{ p.date }} {{ p.time }}</b></p>
+          <p>Email проекта: <b>{{ p.email }}</b></p>
+        </div>
+        <div id="project{{ p.id }}_2">
+          <p>Способ наложения: <b>{{ p.videosettings.blend_mode }}</b></p>
+          <p>Способ слета: <b>{{ p.videosettings.fly_mode }}</b></p>
+          <p>Финальный кадр: <b><a href="{{ request.get_host }}{{ p.videosettings.final_shot.url }}">Ссылка</a></b>
+        </div>
+        <div id="project{{ p.id }}_3">
+          <p>Логотип: <b><a href="{{ request.get_host }}{{ p.websitesettings.logo.url }}">Ссылка</a></b>
+          <p>Цвет заголовка: <b style="background-color: {{ p.websitesettings.header_color }}">{{ p.websitesettings.header_color }}</b></p>
+          <p>Цвет страницы: <b style="background-color: {{ p.websitesettings.background_color }}">{{ p.websitesettings.background_color }}</b></p>
+        </div>
+      </div>
     </div>
-
-    {% endfor %}
+  </div>
+  {% endfor %}
 </div>
 {% endif %}
 

@@ -1,7 +1,7 @@
 from PIL import Image
 from django import forms
 from django.core.files import File
-from .models import Project, VideoSettings, WebsiteSettings
+from .models import Project, VideoSettings, WebsiteSettings, Photo
 from django.forms import ModelForm, Textarea, TextInput
 
 
@@ -28,3 +28,10 @@ class WebsiteSettingsForm(forms.ModelForm):
     class Meta:
         model = WebsiteSettings
         fields = ('logo', 'header_color', 'background_color')
+
+
+class PhotoForm(forms.ModelForm):
+    """Загрузчик фотографий"""
+    class Meta:
+        model = Photo
+        fields = ('file',)

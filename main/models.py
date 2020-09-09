@@ -14,9 +14,10 @@ class Project(models.Model):
                                               help_text='Приблизительное количество участников')
     date = models.DateField('Дата')  # Дата
     time = models.TimeField('Время')  # Время
-    email = models.CharField('Email', max_length=100, help_text='Мы вышлем финальное видео на данный email')  # Email
+    email = models.EmailField('Email', max_length=100, help_text='Мы вышлем финальное видео на данный email')  # Email
     created_at = models.DateTimeField('Создан', auto_now_add=True)
-    updated_at = models.DateTimeField('Создан', auto_now_add=True)
+    checked_out = models.BooleanField('Заказан', default=False)
+    checked_at = models.DateTimeField('Когда заказан', auto_now_add=True)
 
     class Meta:
         verbose_name = 'проект'
@@ -60,7 +61,7 @@ class VideoSettings(models.Model):
                                 default='1'
                                 )
     # Финальный кадр
-    final_shot = models.ImageField('Финальный кадр', default='FlyPhoto.png', upload_to='finals/',
+    final_shot = models.ImageField('Финальный кадр', default='finals/FlyPhoto.png', upload_to='finals/',
                                    help_text='Изображение, в которое слетаются фотографии')
 
     class Meta:
@@ -74,7 +75,7 @@ class VideoSettings(models.Model):
 class WebsiteSettings(models.Model):
     """Настройки веб-страницы"""
     project = models.OneToOneField(Project, on_delete=models.CASCADE)
-    logo = models.ImageField('Логотип', default='FlyPhoto.png', upload_to='logos/',
+    logo = models.ImageField('Логотип', default='logos/FlyPhoto.png', upload_to='logos/',
                              help_text='Логотип, расположенный в заголовке веб-страницы. Допускаются изображения в '
                                        'форматах JPG и PNG, в том числе с прозрачным фоном')  # Логотип
     header_color = models.CharField('Цвет заголовка', default='#FFFFFF', max_length=20,
@@ -89,8 +90,8 @@ class WebsiteSettings(models.Model):
 
 class Photo(models.Model):
     """Фотографии, загруженные пользователями в определенный альбом для последующего создания фотостены"""
-    project = models.OneToOneField(Project, on_delete=models.CASCADE)
-    file = models.ImageField('Файл')
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    file = models.ImageField('Фотография', upload_to='photos/')
     is_central = models.BooleanField('Центр', default=False)  # Является ли эта фотография центральной
     uploaded_at = models.DateTimeField('Загружено', auto_now_add=True)
 
